@@ -1,6 +1,6 @@
 {
   "name": "react-native-tcp",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "description": "node's net API for react-native with TLS support",
   "main": "TcpSockets.js",
   "scripts": {
@@ -36,7 +36,8 @@
   },
   "homepage": "https://github.com/PeelTechnologies/react-native-tcp",
   "peerDependencies": {
-    "react-native": ">=0.40.0"
+    "react": "*",
+    "react-native": "*"
   },
   "dependencies": {
     "base64-js": "0.0.8",
