@@ -291,7 +291,7 @@ TcpSocket.prototype._registerEvents = function(): void {
       }
       this._onError(ev.error);
     }),
-    this._eventEmitter.addListener('secureConnect', ev => {
+    this._eventEmitter.addListener('connect', ev => {
       if (this._id !== ev.id) {
         return;
       }
@@ -363,8 +363,8 @@ TcpSocket.prototype._onError = function(error: string): void {
 };
 
 TcpSocket.prototype._onSecureConnect = function(error: string): void {
-  this._debug('received', 'secureConnect');
-  this.emit('secureConnect');
+  this._debug('received', 'connect');
+  this.emit('connect');
 };
 
 TcpSocket.prototype.getState = function(): number {
