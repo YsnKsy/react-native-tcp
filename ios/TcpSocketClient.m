@@ -118,7 +118,7 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
 
     // GCDAsyncSocket doesn't recognize 0.0.0.0
     if ([@"0.0.0.0" isEqualToString: host]) {
-        host = @"localhost";
+        host = nil;
     }
     BOOL isListening = [_tcpSocket acceptOnInterface:host port:port error:error];
     if (isListening == YES) {
@@ -142,11 +142,10 @@ NSString *const RCTTCPErrorDomain = @"RCTTCPErrorDomain";
 - (void) writeData:(NSData *)data
           callback:(RCTResponseSenderBlock)callback
 {
-    NSNumber *sendTag = [_clientDelegate getNextTag];
     if (callback) {
         [_clientDelegate setPendingSend:callback forKey:sendTag];
     }
-    [_tcpSocket writeData:data withTimeout:-1 tag:sendTag.longValue];
+    [_tcpSocket writeData:data withTimeout:-1 tag:_sendTag];
 
     [_tcpSocket readDataWithTimeout:-1 tag:_id.longValue];
 }

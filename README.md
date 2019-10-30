@@ -18,6 +18,14 @@ __Note for iOS:__ If your react-native version < 0.40 install with this tag inst
 ```
 npm install react-native-tcp@3.1.0 --save
 ```
+## if using Cocoapods
+
+Update the following line with your path to `node_modules/` and add it to your
+podfile:
+
+```ruby
+pod 'TcpSockets', :path => '../node_modules/react-native-tcp'
+```
 
 ## if using Cocoapods
  Update the following line with your path to `node_modules/` and add it to your
@@ -104,10 +112,6 @@ socket.on('data', (data) => {
 
 host name verification on tls upgrade not implemented on android
 add select tests from node's tests for net
-
-## Contributors
-
-[Andy Prock](https://github.com/aprock)  
 
 PR's welcome!
 
